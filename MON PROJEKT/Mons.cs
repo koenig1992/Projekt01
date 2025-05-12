@@ -85,16 +85,6 @@ namespace MON_PROJEKT
 
 
 
-        public enum MonClass
-        {
-            Base, Fighter, Spellcaster, Rogue, Mechanic, Healer
-        }
-
-        public enum WeightClass
-        {
-            Featherweight, Lightweight, Middleweight, Heavyweight, SuperHeavyweight
-        }
-
         // === MON ATTACK ===
         public class Attack
         {
