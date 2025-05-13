@@ -17,22 +17,22 @@ Es ist inspiriert von Pokemon, FF, Chrono Trigger, Dragon Quest Monsters etc.
 
 TAG 1
 A // MONS
-            // initialisiere MONS;
-            // mons haben NAME;
-            // mons haben GENOS: THERIOID / SAUROID / AMPHIBIOID / ORNITHOID / ICHTHYOID / ASPONDYLOID / PHYTOID / ORGANOID;
-            // mons haben PRIMÄRTYP/SEKUNDÄRTYP: EARTH, BIO, TOXIN, WATER, ICE, FIRE, AIR, LIGHTNING, SHADOW;
+            //CHECK     initialisiere MONS;
+            //CHECK     mons haben NAME;
+            //CHECK     mons haben GENOS: THERIOID / SAUROID / AMPHIBIOID / ORNITHOID / ICHTHYOID / ASPONDYLOID / PHYTOID / ORGANOID;
+            //CHECK     mons haben TYP: EARTH, BIO, TOXIN, WATER, ICE, FIRE, AIR, LIGHTNING, SHADOW;
             // mons haben HOME BONUS
-            // mons haben SIMPLE GRAFIK (string "" ZEICHENSYMBOLE + FARBE);
-            // mons haben CRY (BEEP);
+            //CHECK     mons haben SIMPLE GRAFIK (string "" ZEICHENSYMBOLE + FARBE);
+            //CHECK     mons haben CRY (BEEP);
             // mons haben EXP-BAR (string "?" MIT FARBE);
             // mons haben LEVEL;
-            // mons haben IMMER EINE KLASSE: STARTKLASSE "BASE";
+            //CHECK     mons haben IMMER EINE KLASSE: STARTKLASSE "BASE";
             // mons haben ZUGANG ZU 3/5 KLASSEN: ("BASE" /) "FIGHTER" / "SPELLCASTER" / "ROGUE" / "MECHANIC" / "HEALER";
             // mons KÖNNEN KLASSE ÄNDERN (EINMALIGE AUSBILDUNG VON "BASE")
-            // mons haben JE 8 STATS: HP / STAMINA / PHY ATK / PHY DEF / PSYMINA / PSY ATK / PSY DEF / SPEED;
+            //CHECK     mons haben JE 8 STATS: HP / STAMINA / PHY ATK / PHY DEF / PSYMINA / PSY ATK / PSY DEF / SPEED;
             // mons haben JE 4 ATTACKEN
-            // mons haben ATTACK LEARNSET;
-            // mons haben GEWICHT: FEATHERWEIGHT / LIGHTWEIGHT / MIDDLEWEIGHT / HEAVYWEIGHT / SUPER HEAVYWEIGHT;
+            //CHECK     mons haben ATTACK LEARNSET;
+            //CHECK     mons haben GEWICHT: FEATHERWEIGHT / LIGHTWEIGHT / MIDDLEWEIGHT / HEAVYWEIGHT / SUPER HEAVYWEIGHT;
 [ADDED AFTER GREEN LIGHT]    // mons können zum HQ geschickt werden, wenn kein platz mehr in der Gang ist;
 
 // ALLE MON INFOS KÖNNEN ABGEFRAGT WERDEN!
@@ -54,10 +54,10 @@ B // CORE / STORY / OVERWORLD
 
 TAG 3
 C // ATTACKEN
-            // initialisiere ATTACKEN;
-            // ELEMENTAL TYPING: NEUTRAL, EARTH, BIO, TOXIN, WATER, ICE, FIRE, AIR, LIGHTNING, SHADOW;
-            // CATEGORY: PHYSICAL, PSYCHIC, STATUS;
-            // POWER: BASE DAMAGE;
+            //CHECK     initialisiere ATTACKEN;
+            //CHECK     ELEMENTAL TYPING: NEUTRAL, EARTH, BIO, TOXIN, WATER, ICE, FIRE, AIR, LIGHTNING, SHADOW;
+            //CHECK     CATEGORY: PHYSICAL, PSYCHIC, STATUS;
+            //CHECK     POWER: BASE DAMAGE;
             // TYPE EFFECTIVEVENSS (+25% damage super effecitve / -25% damage not very effective) 
             // if ATTACK TYPE = MON TYPE: SAME TYPE ATTACK BONUS +10%
             // COST: STAMINA/PSYMINA;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,115 +25,141 @@ namespace MON_PROJEKT
             };
     */
 
-    class Mon
+    // MONS
+
+    // Eigenschaften der Mons:
+    // mons haben NAME;
+    // mons haben GENOS: THERIOID / SAUROID / AMPHIBIOID / ORNITHOID / ICHTHYOID / ASPONDYLOID / PHYTOID / ORGANOID;
+    // mons haben MONTYPE: EARTH, BIO, TOXIN, WATER, ICE, FIRE, AIR, LIGHTNING, SHADOW;
+    // (mons haben HOME BONUS -> erst im Kampfsystem)
+    // mons haben SIMPLE GRAFIK und CRY (SpriteCry = string in Farbe und beep);
+    // mons haben EXP-BAR (LevelExp = string Symbol in Farbe, Counter zum Level Up);
+    // mons haben IMMER EINE KLASSE: STARTKLASSE "BASE";
+    // mons haben ZUGANG ZU 3/5 KLASSEN: ("BASE" /) "FIGHTER" / "SPELLCASTER" / "ROGUE" / "MECHANIC" / "HEALER";
+    // mons KÖNNEN KLASSE EINMALIG ÄNDERN (EINMALIGE AUSBILDUNG VON "BASE", ZUGANG NUR ZU JE 3 AUSBILDUNGEN)
+    // mons haben JE 8 STATS: HP / STAMINA / PHY ATK / PHY DEF / PSYMINA / PSY ATK / PSY DEF / SPEED;
+    // mons haben JE 4 ATTACKEN;
+    // mons haben ATTACK LEARNSET;
+    // mons haben GEWICHT: FEATHERWEIGHT / LIGHTWEIGHT / MIDDLEWEIGHT / HEAVYWEIGHT / SUPER HEAVYWEIGHT;
+    // [ADDED AFTER GREEN LIGHT]:  Mons können zum HQ geschickt werden, wenn kein platz mehr in der Gang ist;
+
+    // ALLE MON INFOS KÖNNEN ABGEFRAGT WERDEN!
+
+
+    public abstract class Mon // abstrakte Klasse Mon
     {
-        public class Mon()
+        public string MonName { get; set; } // veränderbar, rechnerisch irrelevant
+        public virtual void SpriteCry() // weil string+beep gemischt => METHODE! nicht veränderbar, rechnerisch irrelevant, nur "schön"
         {
-            public string Name { get; set; }
-
-            public string Genos { get;} // nicht veränderbar, nicht rechnerisch relevant
-
-            public string MonType { get; set; }
-
-            public string LevelExp { get; set; }
-
-            public string Klasse { get; set; }
-
-            public int Stats { get; set; }
-
-            public string WeightClass { get; set; }
-
+            Console.WriteLine("MON"); // default ausgefüllt, um Format für mich zu wissen und nicht null zu bekommen
+            Console.Beep(1000, 1000); // default ausgefüllt, um Format für mich zu wissen und nicht null zu bekommen
         }
-
-        public virtual void Name()
-        { }
-
-        public virtual void Genos() // string genügt, nicht veränderbar, nicht rechnerisch relevant, nur "schön"
+        public Genos Genos { get; } // nicht veränderbar, rechnerisch irrelevant, nur "schön"
+        public WeightClass WeightClass { get; } // nicht veränderbar, rechnerisch irrelevant, nur "schön"
+        public List<MonType> MonTypes { get; } // nicht veränderbar, rechnerisch RELEVANT
+        public int LevelExp { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
+        public List<Klasse> Klassen { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
+        public Dictionary<Stat, int> Stats { get; set; } = new Dictionary<Stat, int>// VERÄNDERBAR, rechnerisch RELEVANT
         {
-            "Therioid", "Sauroid", "Amphibioid", "Ornithoid", "Ichthyoid", "Aspondyloid", "Phytoid", "Organoid";
- }
+                { Stat.HP, 50 }, // default ausgefüllt, um Format für mich zu wissen
+    { Stat.Stamina, 50 },
+    { Stat.PhyAtk, 50 },
+    { Stat.PhyDef, 50 },
+    { Stat.Psymina, 50 },
+    { Stat.PsyAtk, 50 },
+    { Stat.PsyDef, 50 },
+    { Stat.Speed, 50 }
+        };
+        public List<Attacke> AttackenAktuell { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
 
-        public virtual void MonType() // vorerst string, ziel: List? Dictionary?
+        public List<Attacke> AttackenLearnset { get; set; } // nicht veränderbar, rechnerisch irrelevant
+
+        protected Mon(string monName, Genos genos, WeightClass weightClass, List<MonType> monTypes, int levelExp, List<Klasse> klassen, Dictionary<Stat, int> stats, List<Attacke> attackenAktuell, List<Attacke> attackenLearnset)
         {
-            "Earth", "Bio", "Toxin", "Water", "Ice", "Fire", "Air", "Lightning", "Shadow";
- }
+            MonName = monName;
 
-        public virtual void SpriteCry() // string für sprite, beep für cry
-        { }
-
-        public virtual void LevelExp()
-        { }
-
-        public virtual void Klasse() // vorerst string, ziel: List? Dictionary?
-        {
-            "Base", "Fighter", "Spellcaster", "Rogue", "Mechanic" "Healer";
-}
-
-        public virtual void Stats()
-        { }
-
-        public virtual void Attacks() // List? Dictionary? Attacks = zurzeit erlernte Attacken. Moveset = Lernbare Attacken
-        { }
-
-
-        public virtual void WeightClass()
-        {
-            "Featherweight", "Lightweight", "Middleweight", "Heavyweight", "SuperHeavyweight";
- }
-
-
-
-
-
-
-        // === MON ATTACK ===
-        public class Attack
-        {
-            public string Name { get; set; }
-            public AttackType Type { get; set; }
-            public int Power { get; set; }
-            public string Description { get; set; }
-
-            public Attack(string name, AttackType attackType, int power, string description)
-            {
-                Name = name;
-                AttackType = attackType;
-                Power = power;
-                Description = description;
-            }
+            Genos = genos;
+            WeightClass = weightClass;
+            MonTypes = monTypes;
+            LevelExp = levelExp;
+            Klassen = klassen;
+            Stats = stats;
+            AttackenAktuell = attackenAktuell;
+            AttackenLearnset = attackenLearnset;
         }
 
 
-        public void MonInfo()
-        {
-            Mon.SpriteCry;
 
-            Console.WriteLine($"Name: {Name}");
+        public virtual void MonInfo()
+        {
+            Console.WriteLine($"Name: {MonName}");
+            SpriteCry();
             Console.WriteLine($"Genos: {Genos}");
-            Console.WriteLine($"Typ: {MonType}");
-            Console.WriteLine($"Klasse: {Klasse}");
-            Console.WriteLine($"Gewicht: {WeightClass}");
+            Console.WriteLine($"Typen: {string.Join("", MonTypes)}"); // string.Join <= Listeninhalt als string ausgeben
+            Console.WriteLine($"Klasse(n): {string.Join("", Klassen)}");
+            Console.WriteLine($"Gewichtsklasse: {WeightClass}");
             Console.WriteLine($"Level: {LevelExp}");
             Console.WriteLine("Stats:");
-            foreach (var stat in Stats)
-            {
-                Console.WriteLine($"  {stat.Key}: {stat.Value}");
-            }
-
+            foreach (var stat in Stats) // var, weil verschiedene datentypen
+                Console.WriteLine($"{stat.Key}: {stat.Value}"); // für jeden KEY den VALUE anzeigen -> KEY: HP, VALUE: 50
             Console.WriteLine("Attacken:");
-            foreach (var move in Moveset)
-            {
-                Console.WriteLine($"  {move.Name} ({move.Type}) - {move.Power} Power");
-            }
-
-            Console.WriteLine();
+            foreach (var atk in AttackenAktuell) // var, weil verschiedene datentypen
+                Console.WriteLine($"{atk.AttackName} ({atk.AttackType} / {atk.AttackCategory} / Mina Cost: {atk.AttackCost})  - Power: {atk.Power}");
         }
 
 
-
-        // QUELLEN: Unterrichtsmaterial/Übung zu Dictionary, Methoden, Klassen, Vererbung
     }
 
 
+    // Enumeration optimal zur Auswahl von begrenzten Möglichkeiten
 
+
+    public enum Genos
+    {
+        Therioid, Sauroid, Amphibioid, Ornithoid,
+        Ichthyoid, Aspondyloid, Phytoid, Organoid
+    }
+
+    public enum WeightClass
+    {
+        Featherweight, Lightweight, Middleweight, Heavyweight, SuperHeavyweight
+    }
+
+    public enum MonType
+    {
+        Earth, Bio, Toxin, Water, Ice, Fire, Air, Lightning, Shadow
+    }
+
+    public enum Klasse
+    {
+        Base, Fighter, Spellcaster, Rogue, Mechanic, Healer
+    }
+
+    public enum Stat
+    {
+        HP, Stamina, PhyAtk, PhyDef, Psymina, PsyAtk, PsyDef, Speed
+    }
+
+    public enum AttackType
+    {
+        Earth, Bio, Toxin, Water, Ice, Fire, Air, Lightning, Shadow
+    }
+
+    public enum AttackCategory
+    {
+        Physical, Psychic, Status
+    }
+
+    // KLASSEN ETABLIERT ( WAS MÜSSEN OBJEKTE BEINHALTEN)
+    // JETZT METHODEN (WAS MÜSSEN OBJEKTE KÖNNEN)!
+
+
+
+
+
+
+    // QUELLEN: Unterrichtsmaterial/Übung zu Dictionary, Methoden, Klassen, Vererbung
 }
+
+
+

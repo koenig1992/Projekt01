@@ -1,13 +1,20 @@
-﻿
+﻿using MON_PROJEKT;
 
+class program
+{
 
-using Mons;
+    static void Main()
+    {
+        Console.WriteLine("START TEST");
 
+        Mon zaptor = new Zaptor();
+        zaptor.MonInfo();
 
-string mon1 = ("babymon");
-Console.WriteLine($"{mon1} erscheint");
+        Console.WriteLine("TEST ENDE");
+        Console.ReadKey();
 
-
+    }
+}
 
 
 
