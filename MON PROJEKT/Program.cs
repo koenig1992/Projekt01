@@ -17,6 +17,13 @@ class program
         Mon elephant = new Elephant();
         elephant.MonInfo();
 
+        Console.ReadKey();
+
+        Mon salamander = new Salamander();
+        salamander.MonInfo();
+
+        Console.ReadKey();
+
         Console.WriteLine("TEST ENDE");
         Console.ReadKey();
 

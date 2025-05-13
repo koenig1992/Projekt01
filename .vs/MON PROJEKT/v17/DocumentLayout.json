@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|solutionrelative:mon projekt\\mondex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|c:\\users\\k\u00F6nigdennis\\source\\repos\\mon projekt\\mon projekt\\attacken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|solutionrelative:mon projekt\\attacken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|c:\\users\\k\u00F6nigdennis\\source\\repos\\mon projekt\\mon projekt\\projekt .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|solutionrelative:mon projekt\\projekt .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|c:\\users\\k\u00F6nigdennis\\source\\repos\\mon projekt\\mon projekt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|solutionrelative:mon projekt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,16 +23,8 @@
       "RelativeMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|solutionrelative:mon projekt\\mons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|c:\\users\\k\u00F6nigdennis\\source\\repos\\mon projekt\\mon projekt\\projekt .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|solutionrelative:mon projekt\\projekt .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|c:\\users\\k\u00F6nigdennis\\source\\repos\\mon projekt\\mon projekt\\klassen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|solutionrelative:mon projekt\\klassen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|c:\\users\\k\u00F6nigdennis\\source\\repos\\mon projekt\\mon projekt\\attacken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D48D4EEF-43C4-498F-9A34-D6CE6C2C8286}|MON PROJEKT\\MON PROJEKT.csproj|solutionrelative:mon projekt\\attacken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +38,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Mons.cs",
               "DocumentMoniker": "C:\\Users\\K\u00F6nigDennis\\source\\repos\\MON PROJEKT\\MON PROJEKT\\Mons.cs",
               "RelativeDocumentMoniker": "MON PROJEKT\\Mons.cs",
@@ -47,8 +47,7 @@
               "ViewState": "AgIAAHIAAAAAAAAAAADgvzYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T13:04:31.792Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -74,27 +73,27 @@
               "RelativeDocumentMoniker": "MON PROJEKT\\MonDex.cs",
               "ToolTip": "C:\\Users\\K\u00F6nigDennis\\source\\repos\\MON PROJEKT\\MON PROJEKT\\MonDex.cs",
               "RelativeToolTip": "MON PROJEKT\\MonDex.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAIwGoAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAIwFYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-13T07:51:57.607Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Attacken.cs",
               "DocumentMoniker": "C:\\Users\\K\u00F6nigDennis\\source\\repos\\MON PROJEKT\\MON PROJEKT\\Attacken.cs",
               "RelativeDocumentMoniker": "MON PROJEKT\\Attacken.cs",
               "ToolTip": "C:\\Users\\K\u00F6nigDennis\\source\\repos\\MON PROJEKT\\MON PROJEKT\\Attacken.cs",
               "RelativeToolTip": "MON PROJEKT\\Attacken.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwEUAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAmwDcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T17:57:32.908Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Klassen.cs",
               "DocumentMoniker": "C:\\Users\\K\u00F6nigDennis\\source\\repos\\MON PROJEKT\\MON PROJEKT\\Klassen.cs",
               "RelativeDocumentMoniker": "MON PROJEKT\\Klassen.cs",
@@ -102,12 +101,11 @@
               "RelativeToolTip": "MON PROJEKT\\Klassen.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T17:47:33.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T17:47:33.748Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "PROJEKT .cs",
               "DocumentMoniker": "C:\\Users\\K\u00F6nigDennis\\source\\repos\\MON PROJEKT\\MON PROJEKT\\PROJEKT .cs",
               "RelativeDocumentMoniker": "MON PROJEKT\\PROJEKT .cs",
@@ -120,13 +118,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\K\u00F6nigDennis\\source\\repos\\MON PROJEKT\\MON PROJEKT\\Program.cs",
               "RelativeDocumentMoniker": "MON PROJEKT\\Program.cs",
               "ToolTip": "C:\\Users\\K\u00F6nigDennis\\source\\repos\\MON PROJEKT\\MON PROJEKT\\Program.cs",
               "RelativeToolTip": "MON PROJEKT\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-09T09:01:15.384Z",
               "EditorCaption": ""

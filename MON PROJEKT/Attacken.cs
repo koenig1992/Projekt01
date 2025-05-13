@@ -39,14 +39,14 @@ namespace MON_PROJEKT
     public static class AttackenDex // MÜSSEN STATIC SEIN!!!!!!!!
     {
         public static Attacke a1 = new Attacke(
-                 attackDexNo: 1,
-                 attackName: "Fire Fist",
-                 attackType: AttackType.Fire,
-                 attackCategory: AttackCategory.Physical,
-                 attackCost: 20,
-                 power: 70,
-                 attackDescription: "jaja voll geile attacke, brudi"
-      );
+            attackDexNo: 1,
+            attackName: "Fire Fist",
+            attackType: AttackType.Fire,
+            attackCategory: AttackCategory.Physical,
+            attackCost: 20,
+            power: 70,
+            attackDescription: "jaja voll geile attacke, brudi"
+            );
 
         public static Attacke a2 = new Attacke(
             attackDexNo: 2,
@@ -56,20 +56,26 @@ namespace MON_PROJEKT
             attackCost: 40,
             power: 100,
             attackDescription: "BLITZZZZZZZZSCHLAG"
-
-
-            );
+        );
 
         public static Attacke a3 = new Attacke(
-        attackDexNo: 3,
-        attackName: "Earthquake",
-        attackType: AttackType.Earth,
-        attackCategory: AttackCategory.Physical,
-        attackCost: 50,
-        power: 120,
-        attackDescription: "EARTHQUAAAAAKE"
+            attackDexNo: 3,
+            attackName: "Earthquake",
+            attackType: AttackType.Earth,
+            attackCategory: AttackCategory.Physical,
+            attackCost: 50,
+            power: 120,
+            attackDescription: "EARTHQUAAAAAKE"
+        );
 
-
+        public static Attacke a4 = new Attacke(
+            attackDexNo: 4,
+            attackName: "MagmaBall",
+            attackType: AttackType.Fire,
+            attackCategory: AttackCategory.Psychic,
+            attackCost: 50,
+            power: 110,
+            attackDescription: "a Magma Ball erupts"
         );
     }
 }
