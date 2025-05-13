@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 namespace MON_PROJEKT
 {
 
+
+
+
+
     public class Zaptor : Mon
     {
         public Zaptor() : base(  // PARAMETER gesetzt, muss mit : base () übergeben werden
@@ -18,14 +22,14 @@ namespace MON_PROJEKT
             klassen: new List<Klasse> { Klasse.Base },
             stats: new Dictionary<Stat, int>
             {
-            { Stat.HP, 60 },
-            { Stat.Stamina, 55 },
+            { Stat.HP, 50 },
+            { Stat.Stamina, 85 },
             { Stat.PhyAtk, 70 },
-            { Stat.PhyDef, 50 },
+            { Stat.PhyDef, 40 },
             { Stat.Psymina, 40 },
-            { Stat.PsyAtk, 30 },
+            { Stat.PsyAtk, 60 },
             { Stat.PsyDef, 45 },
-            { Stat.Speed, 75 }
+            { Stat.Speed, 90 }
             },
 
             attackenAktuell: new List<Attacke>
@@ -53,12 +57,63 @@ namespace MON_PROJEKT
             Console.Beep(2000, 50);
             Console.Beep(2000, 50);
             Console.Beep(2000, 300);
-
-
         }
 
     }
 
+    public class Elephant : Mon
+    {
+        public Elephant() : base(  // PARAMETER gesetzt, muss mit : base () übergeben werden
+            monName: "Elephant",
+            genos: Genos.Therioid,
+            weightClass: WeightClass.SuperHeavyweight,
+            monTypes: new List<MonType> { MonType.Earth },
+            levelExp: 1,
+            klassen: new List<Klasse> { Klasse.Base },
+            stats: new Dictionary<Stat, int>
+            {
+            { Stat.HP, 100 },
+            { Stat.Stamina, 55 },
+            { Stat.PhyAtk, 80 },
+            { Stat.PhyDef, 70 },
+            { Stat.Psymina, 40 },
+            { Stat.PsyAtk, 20 },
+            { Stat.PsyDef, 45 },
+            { Stat.Speed, 45 }
+            },
 
+            attackenAktuell: new List<Attacke>
+            {
+                AttackenDex.a1,
+                AttackenDex.a3
+            },
+
+            attackenLearnset: new List<Attacke>
+            {
+
+                AttackenDex.a1,
+                AttackenDex.a3
+            }
+
+           )
+        { } // <== 2 FUCKING STUNDEN!!!!!!! WTF. DAS IST DER KONSTRUKTOR KÖRPER. DER KANN LEER SEIN, MUSS ABER VORHANDEN SEIN!
+
+
+        public override void SpriteCry()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("GAAAROOOOOOWWW");
+            Console.ResetColor();
+            Console.Beep(200, 300);
+            Console.Beep(300, 1000);
+        }
+
+
+    }
 }
+
+
+
+
+
 

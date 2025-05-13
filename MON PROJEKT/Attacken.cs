@@ -38,8 +38,8 @@ namespace MON_PROJEKT
 
     public static class AttackenDex // MÜSSEN STATIC SEIN!!!!!!!!
     {
-        public static Attacke a1 = new Attacke
-                   (attackDexNo: 1,
+        public static Attacke a1 = new Attacke(
+                 attackDexNo: 1,
                  attackName: "Fire Fist",
                  attackType: AttackType.Fire,
                  attackCategory: AttackCategory.Physical,
@@ -59,6 +59,18 @@ namespace MON_PROJEKT
 
 
             );
+
+        public static Attacke a3 = new Attacke(
+        attackDexNo: 3,
+        attackName: "Earthquake",
+        attackType: AttackType.Earth,
+        attackCategory: AttackCategory.Physical,
+        attackCost: 50,
+        power: 120,
+        attackDescription: "EARTHQUAAAAAKE"
+
+
+        );
     }
 }
 
