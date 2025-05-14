@@ -10,20 +10,6 @@ using System.Threading.Tasks;
 namespace MON_PROJEKT
 {
 
-    /*
-    List<Mon> MonDex = new() - Liste oder Klasse mit Vererbung??
-            {
-                new Mon("Generic FireMon", MonType.Fire, 100, 80, 70, 60, 50, 80, 40, 90),
-                new Mon("Generic WaterMon", MonTyp.Water, 50, 70, 50, 40, 90, 90, 90, 80),
-                new Mon("Generic EarthMon", MonType.Earth, 120, 70, 90, 90, 40, 50, 50, 40),
-                new Mon("Generic ToxinMon", MonType.Toxin, 90, 100, 60, 50, 60, 90, 60, 95),
-                new Mon("Generic IceMon", MonType.Ice, 95, 85, 65, 55, 60, 85, 60, 88),
-                new Mon("Generic LightningMon", MonType.Lightning, 50, 75, 70, 50, 60, 80, 60, 100),
-                new Mon("Generic AirMon", MonType.Air, 100, 70, 80, 60, 80, 80, 50, 80),
-                new Mon("Generic ShadowMon", MonType.Shadow, 40, 70, 30, 200, 80, 85, 40, 90),
-                new Mon("Generic Biomon", MonType.Bio, 100, 85, 60, 65, 65, 70, 65, 75),
-            };
-    */
 
     // MONS
 
@@ -68,11 +54,16 @@ namespace MON_PROJEKT
                 { Stat.PsyDef, 50 },
                 { Stat.Speed, 50 }
         };
-        public List<Attacke> AttackenAktuell { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
+        public Attacke AttackSlot1 { get; set; } // EEEEEEWIG AN LISTE RUMGEDOKTORT -> 4 EINZELNE SLOTS VIEL EINFACHER ZU HANDELN!
+        public Attacke AttackSlot2 { get; set; }
+        public Attacke AttackSlot3 { get; set; }
+        public Attacke AttackSlot4 { get; set; }
 
-        public List<Attacke> AttackenLearnset { get; set; } // nicht veränderbar, rechnerisch irrelevant
 
-        protected Mon(string monName, Genos genos, WeightClass weightClass, MonAttackType monType, int levelExp, MonKlasse klasseAktuell, List<MonKlasse> klassenOptionen, Dictionary<Stat, int> stats, List<Attacke> attackenAktuell, List<Attacke> attackenLearnset)
+
+        public List<Attacke> AttackenLearnset { get; set; } // VERÄNDERBAR NACH KLASSE!, rechnerisch irrelevant
+
+        protected Mon(string monName, Genos genos, WeightClass weightClass, MonAttackType monType, int levelExp, MonKlasse klasseAktuell, List<MonKlasse> klassenOptionen, Dictionary<Stat, int> stats, Attacke attackSlot1, Attacke attackSlot2, Attacke attackSlot3, Attacke attackSlot4, List<Attacke> attackenLearnset)
         {
             MonName = monName;
 
@@ -83,7 +74,10 @@ namespace MON_PROJEKT
             KlasseAktuell = klasseAktuell;
             KlassenOptionen = klassenOptionen;
             Stats = stats;
-            AttackenAktuell = attackenAktuell;
+            AttackSlot1 = attackSlot1;
+            AttackSlot2 = attackSlot2;
+            AttackSlot3 = attackSlot3;
+            AttackSlot4 = attackSlot4;
             AttackenLearnset = attackenLearnset;
         }
 
@@ -102,8 +96,17 @@ namespace MON_PROJEKT
             foreach (var stat in Stats) // var, weil verschiedene datentypen
                 Console.WriteLine($"{stat.Key}: {stat.Value}"); // für jeden KEY den VALUE anzeigen -> KEY: HP, VALUE: 50
             Console.WriteLine("Attacken:");
-            foreach (var atk in AttackenAktuell) // var, weil verschiedene datentypen
+            foreach (var atk in AttackSlot1) // var, weil verschiedene datentypen
                 Console.WriteLine($"{atk.AttackName} ({atk.AttackType} / {atk.AttackCategory} / Mina Cost: {atk.AttackCost})  - Power: {atk.Power}");
+            foreach (var atk in AttackSlot2) // var, weil verschiedene datentypen
+                Console.WriteLine($"{atk.AttackName} ({atk.AttackType} / {atk.AttackCategory} / Mina Cost: {atk.AttackCost})  - Power: {atk.Power}");
+            foreach (var atk in AttackSlot3) // var, weil verschiedene datentypen
+                Console.WriteLine($"{atk.AttackName} ({atk.AttackType} / {atk.AttackCategory} / Mina Cost: {atk.AttackCost})  - Power: {atk.Power}");
+            foreach (var atk in AttackSlot4) // var, weil verschiedene datentypen
+                Console.WriteLine($"{atk.AttackName} ({atk.AttackType} / {atk.AttackCategory} / Mina Cost: {atk.AttackCost})  - Power: {atk.Power}");
+
+
+
         }
 
         public virtual void WechselKlasse()

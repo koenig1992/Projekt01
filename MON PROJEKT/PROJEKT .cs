@@ -21,16 +21,16 @@ A // MONS
             //CHECK     mons haben NAME;
             //CHECK     mons haben GENOS: THERIOID / SAUROID / AMPHIBIOID / ORNITHOID / ICHTHYOID / ASPONDYLOID / PHYTOID / ORGANOID;
             //CHECK     mons haben TYP: EARTH, BIO, TOXIN, WATER, ICE, FIRE, AIR, LIGHTNING, SHADOW;
-            // mons haben HOME BONUS
+            // !!! - KOMMT IM KAMPFSYSTEM: mons haben HOME BONUS
             //CHECK     mons haben SIMPLE GRAFIK (string "" ZEICHENSYMBOLE + FARBE);
             //CHECK     mons haben CRY (BEEP);
-            // mons haben EXP-BAR (string "?" MIT FARBE);
-            // mons haben LEVEL;
+            // !!! _ KOMMT IM KAMPFSYSTEM: mons haben EXP-BAR (string "?" MIT FARBE);
+            // !!! - KOMMT IM KAMPFSYSTEM: mons haben LEVEL;
             //CHECK     mons haben IMMER EINE KLASSE: STARTKLASSE "BASE";
-            // mons haben ZUGANG ZU 3/5 KLASSEN: ("BASE" /) "FIGHTER" / "SPELLCASTER" / "ROGUE" / "MECHANIC" / "HEALER";
-            // mons KÖNNEN KLASSE ÄNDERN (EINMALIGE AUSBILDUNG VON "BASE")
+            //CHECK     mons haben ZUGANG ZU 3/5 KLASSEN: ("BASE" /) "FIGHTER" / "SPELLCASTER" / "ROGUE" / "MECHANIC" / "HEALER";
+            //CHWCK     mons KÖNNEN KLASSE ÄNDERN (EINMALIGE AUSBILDUNG VON "BASE")
             //CHECK     mons haben JE 8 STATS: HP / STAMINA / PHY ATK / PHY DEF / PSYMINA / PSY ATK / PSY DEF / SPEED;
-            // mons haben JE 4 ATTACKEN
+            //CHECK     mons haben JE 4 ATTACKEN
             //CHECK     mons haben ATTACK LEARNSET;
             //CHECK     mons haben GEWICHT: FEATHERWEIGHT / LIGHTWEIGHT / MIDDLEWEIGHT / HEAVYWEIGHT / SUPER HEAVYWEIGHT;
 [ADDED AFTER GREEN LIGHT]    // mons können zum HQ geschickt werden, wenn kein platz mehr in der Gang ist;
@@ -58,11 +58,12 @@ C // ATTACKEN
             //CHECK     ELEMENTAL TYPING: NEUTRAL, EARTH, BIO, TOXIN, WATER, ICE, FIRE, AIR, LIGHTNING, SHADOW;
             //CHECK     CATEGORY: PHYSICAL, PSYCHIC, STATUS;
             //CHECK     POWER: BASE DAMAGE;
-            // TYPE EFFECTIVEVENSS (+25% damage super effecitve / -25% damage not very effective) 
-            // if ATTACK TYPE = MON TYPE: SAME TYPE ATTACK BONUS +10%
-            // COST: STAMINA/PSYMINA;
-            // EFFECT: ADDITIONAL EFFECTS;
-            +// ATTACH ATTACK LEARNSET TO MONS;
+            // !!! - KOMMT IM KAMPFSYSTEM: TYPE EFFECTIVEVENSS (+25% damage super effecitve / -25% damage not very effective) 
+            // !!! - KOMMT IM KAMPFSYSTEM: if ATTACK TYPE = MON TYPE: SAME TYPE ATTACK BONUS +10%
+            // !!! - KOMMT IM KAMPFSYSTEM: COST: STAMINA/PSYMINA;
+            // !!! - EVTL ZU KOMPLIZIERT, AUSGESETZT: EFFECT: ADDITIONAL EFFECTS;
+            +// CHECK   ATTACH ATTACK LEARNSET TO MONS;
+[ADDED AFTER GREEN LIGHT]       // mons können nach level up und ausbildung NEUE ATTACKEN LERNEN!!!
 
 TAG 4 + 5
 D // KAMPFSYSTEM

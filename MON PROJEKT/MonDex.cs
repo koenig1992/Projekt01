@@ -28,17 +28,18 @@ namespace MON_PROJEKT
             { Stat.Speed, 90 }
             },
 
-            attackenAktuell: new List<Attacke>
-            {
-                AttackenDex.a1,
-                AttackenDex.a2
-            },
+           attackSlot1: AttackenDex.a1,
+           attackSlot2: AttackenDex.a2,
+           attackSlot3: AttackenDex.a3,
+           attackSlot4: AttackenDex.a4,
 
             attackenLearnset: new List<Attacke>
             {
 
                 AttackenDex.a1,
-                AttackenDex.a2
+                AttackenDex.a2,
+                AttackenDex.a3,
+                AttackenDex.a4,
             }
 
            )
@@ -78,11 +79,10 @@ namespace MON_PROJEKT
             { Stat.Speed, 45 }
             },
 
-            attackenAktuell: new List<Attacke>
-            {
-                AttackenDex.a1,
-                AttackenDex.a3
-            },
+           attackSlot1: AttackenDex.a1,
+           attackSlot2: AttackenDex.a2,
+           attackSlot3: AttackenDex.a3,
+           attackSlot4: AttackenDex.a4,
 
             attackenLearnset: new List<Attacke>
             {
@@ -127,11 +127,10 @@ namespace MON_PROJEKT
             { Stat.Speed, 40 }
             },
 
-            attackenAktuell: new List<Attacke>
-            {
-                AttackenDex.a1,
-                AttackenDex.a4
-            },
+           attackSlot1: AttackenDex.a1,
+           attackSlot2: AttackenDex.a2,
+           attackSlot3: AttackenDex.a3,
+           attackSlot4: AttackenDex.a4,
 
             attackenLearnset: new List<Attacke>
             {
