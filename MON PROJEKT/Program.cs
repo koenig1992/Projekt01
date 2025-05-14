@@ -11,17 +11,23 @@ class program
 
         Mon zaptor = new Zaptor();
         zaptor.MonInfo();
+        Console.ReadKey();
+        zaptor.WechselKlasse();
+        Console.ReadKey();
+        zaptor.MonInfo();
 
         Console.ReadKey();
 
         Mon elephant = new Elephant();
         elephant.MonInfo();
-
+        Console.ReadKey();
+        elephant.WechselKlasse();
         Console.ReadKey();
 
         Mon salamander = new Salamander();
         salamander.MonInfo();
-
+        Console.ReadKey();
+        salamander.WechselKlasse();
         Console.ReadKey();
 
         Console.WriteLine("TEST ENDE");

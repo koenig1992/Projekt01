@@ -49,40 +49,39 @@ namespace MON_PROJEKT
     public abstract class Mon // abstrakte Klasse Mon
     {
         public string MonName { get; set; } // veränderbar, rechnerisch irrelevant
-        public virtual void SpriteCry() // weil string+beep gemischt => METHODE! nicht veränderbar, rechnerisch irrelevant, nur "schön"
-        {
-            Console.WriteLine("MON"); // default ausgefüllt, um Format für mich zu wissen und nicht null zu bekommen
-            Console.Beep(1000, 1000); // default ausgefüllt, um Format für mich zu wissen und nicht null zu bekommen
-        }
+        public virtual void SpriteCry() { }// weil string+beep gemischt => METHODE! nicht veränderbar, rechnerisch irrelevant, nur "schön"
+
         public Genos Genos { get; } // nicht veränderbar, rechnerisch irrelevant, nur "schön"
         public WeightClass WeightClass { get; } // nicht veränderbar, rechnerisch irrelevant, nur "schön"
-        public List<MonType> MonTypes { get; } // nicht veränderbar, rechnerisch RELEVANT
+        public MonAttackType MonType { get; } // nicht veränderbar, rechnerisch RELEVANT
         public int LevelExp { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
-        public List<Klasse> Klassen { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
+        public virtual MonKlasse KlasseAktuell { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
+        public List<MonKlasse> KlassenOptionen { get; }
         public Dictionary<Stat, int> Stats { get; set; } = new Dictionary<Stat, int>// VERÄNDERBAR, rechnerisch RELEVANT
         {
                 { Stat.HP, 50 }, // default ausgefüllt, um Format für mich zu wissen
-    { Stat.Stamina, 50 },
-    { Stat.PhyAtk, 50 },
-    { Stat.PhyDef, 50 },
-    { Stat.Psymina, 50 },
-    { Stat.PsyAtk, 50 },
-    { Stat.PsyDef, 50 },
-    { Stat.Speed, 50 }
+                { Stat.Stamina, 50 },
+                { Stat.PhyAtk, 50 },
+                { Stat.PhyDef, 50 },
+                { Stat.Psymina, 50 },
+                { Stat.PsyAtk, 50 },
+                { Stat.PsyDef, 50 },
+                { Stat.Speed, 50 }
         };
         public List<Attacke> AttackenAktuell { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
 
         public List<Attacke> AttackenLearnset { get; set; } // nicht veränderbar, rechnerisch irrelevant
 
-        protected Mon(string monName, Genos genos, WeightClass weightClass, List<MonType> monTypes, int levelExp, List<Klasse> klassen, Dictionary<Stat, int> stats, List<Attacke> attackenAktuell, List<Attacke> attackenLearnset)
+        protected Mon(string monName, Genos genos, WeightClass weightClass, MonAttackType monType, int levelExp, MonKlasse klasseAktuell, List<MonKlasse> klassenOptionen, Dictionary<Stat, int> stats, List<Attacke> attackenAktuell, List<Attacke> attackenLearnset)
         {
             MonName = monName;
 
             Genos = genos;
             WeightClass = weightClass;
-            MonTypes = monTypes;
+            MonType = monType;
             LevelExp = levelExp;
-            Klassen = klassen;
+            KlasseAktuell = klasseAktuell;
+            KlassenOptionen = klassenOptionen;
             Stats = stats;
             AttackenAktuell = attackenAktuell;
             AttackenLearnset = attackenLearnset;
@@ -95,8 +94,8 @@ namespace MON_PROJEKT
             Console.WriteLine($"Name: {MonName}");
             SpriteCry();
             Console.WriteLine($"Genos: {Genos}");
-            Console.WriteLine($"Typen: {string.Join("", MonTypes)}"); // string.Join <= Listeninhalt als string ausgeben
-            Console.WriteLine($"Klasse(n): {string.Join("", Klassen)}");
+            Console.WriteLine($"Typen: {string.Join("", MonType)}"); // string.Join <= Listeninhalt als string ausgeben
+            Console.WriteLine($"Klasse(n): {string.Join("", KlasseAktuell)}");
             Console.WriteLine($"Gewichtsklasse: {WeightClass}");
             Console.WriteLine($"Level: {LevelExp}");
             Console.WriteLine("Stats:");
@@ -107,7 +106,140 @@ namespace MON_PROJEKT
                 Console.WriteLine($"{atk.AttackName} ({atk.AttackType} / {atk.AttackCategory} / Mina Cost: {atk.AttackCost})  - Power: {atk.Power}");
         }
 
+        public virtual void WechselKlasse()
+        {
 
+
+
+            if (!(KlasseAktuell == MonKlasse.BASE))
+            {
+                Console.WriteLine($"{MonName} ist bereits {KlasseAktuell} – Klassenwechsel nicht möglich");
+                return;
+            }
+
+            Console.WriteLine($"{MonName} kann eine Ausbildung zu einer der folgenden Klassen beginnen:\n" +
+                $"{string.Join("\n", KlassenOptionen)}" +
+                $"\nBitte wähle eine der angezeigten Klassen aus\n");
+
+            string eingabeAusbildung = Console.ReadLine()?.Trim().ToUpper() ?? "";
+            bool ausbildungMoeglich = Enum.TryParse<MonKlasse>(eingabeAusbildung, true, out var ausbildung) && KlassenOptionen.Contains(ausbildung);
+            if (!ausbildungMoeglich)
+            {
+                Console.WriteLine($"{MonName} kann diese Ausbildung nicht machen");
+            }
+
+            if (ausbildungMoeglich)
+            {
+                switch (ausbildung)
+                {
+
+                    case MonKlasse.FIGHTER:
+                        Console.WriteLine($"{MonName} macht eine Ausbildung zum FIGHTER!");
+                        KlasseAktuell = MonKlasse.FIGHTER;
+
+                        SpriteCry();
+                        Console.ReadLine();
+                        Stats[Stat.HP] += 30;
+                        Stats[Stat.Stamina] += 40;
+                        Stats[Stat.PhyAtk] += 40;
+                        Stats[Stat.PhyDef] += 40;
+                        Console.WriteLine("HP +30\nStamina +40\nPhyAtk +40\nPhyDef +40");
+                        Console.ReadLine();
+                        foreach (var stat in Stats)
+                            Console.WriteLine($"{stat.Key}: {stat.Value}");
+
+                        Console.ReadLine();
+                        break;
+
+                    case MonKlasse.SPELLCASTER:
+                        Console.WriteLine($"{MonName} macht eine Ausbildung zum SPELLCASTER!");
+                        KlasseAktuell = MonKlasse.SPELLCASTER;
+                        SpriteCry();
+                        Console.ReadLine();
+                        Stats[Stat.HP] += 30;
+                        Stats[Stat.Psymina] += 40;
+                        Stats[Stat.PsyAtk] += 40;
+                        Stats[Stat.PsyDef] += 40;
+                        Console.WriteLine("HP +30\nPsymina +40\nPsyAtk +40\nPsyDef +40");
+                        Console.ReadLine();
+                        foreach (var stat in Stats)
+                            Console.WriteLine($"{stat.Key}: {stat.Value}");
+
+                        Console.ReadLine();
+                        break;
+
+                    case MonKlasse.ROGUE:
+                        Console.WriteLine($"{MonName} macht eine Ausbildung zum ROGUE!");
+                        KlasseAktuell = MonKlasse.ROGUE;
+                        SpriteCry();
+                        Console.ReadLine();
+                        Stats[Stat.Speed] += 60;
+                        Stats[Stat.Stamina] += 20;
+                        Stats[Stat.PhyAtk] += 20;
+                        Stats[Stat.Psymina] += 20;
+                        Stats[Stat.PsyAtk] += 20;
+                        Console.WriteLine("Speed +60\nStamina +20\nPhyAtk +20\nPsymina +20\nPsyAtk +20");
+                        Console.ReadLine();
+                        foreach (var stat in Stats)
+                            Console.WriteLine($"{stat.Key}: {stat.Value}");
+
+                        Console.ReadLine();
+                        break;
+
+                    case MonKlasse.MECHANIC:
+                        Console.WriteLine($"{MonName} macht eine Ausbildung zum MECHANIC!");
+                        KlasseAktuell = MonKlasse.MECHANIC;
+                        SpriteCry();
+                        Console.ReadLine();
+                        Stats[Stat.HP] += 20;
+                        Stats[Stat.Stamina] += 30;
+                        Stats[Stat.PhyDef] += 30;
+                        Stats[Stat.Psymina] += 30;
+                        Stats[Stat.PsyDef] += 30;
+                        Console.WriteLine("HP +20\nStamina +30\nPhyDef +30\nPsymina +30\nPsyDef +30");
+                        Console.ReadLine();
+                        foreach (var stat in Stats)
+                            Console.WriteLine($"{stat.Key}: {stat.Value}");
+
+                        Console.ReadLine();
+                        break;
+
+                    case MonKlasse.HEALER:
+                        Console.WriteLine($"{MonName} macht eine Ausbildung zum HEALER!");
+                        KlasseAktuell = MonKlasse.HEALER;
+                        SpriteCry();
+                        Console.ReadLine();
+                        Stats[Stat.HP] += 20;
+                        Stats[Stat.Stamina] += 50;
+                        Stats[Stat.Psymina] += 50;
+                        Stats[Stat.Speed] += 20;
+                        Console.WriteLine("HP +20\nStamina +50\nPsymina +50\nSpeed +20");
+                        Console.ReadLine();
+                        foreach (var stat in Stats)
+                            Console.WriteLine($"{stat.Key}: {stat.Value}");
+
+                        Console.ReadLine();
+                        break;
+
+                    default:
+                        Console.WriteLine("Ungültige Eingabe. Kein Klassenwechsel durchgeführt");
+                        Console.ReadLine();
+                        break;
+
+                }
+            }
+
+
+
+            /*
+
+
+            // HIER WAHRSCHEINLICH ÜBERSCHREIBEN GUT
+            // KlasseAktuell = neueKlasse;
+            // Console.WriteLine($"{MonName} wurde zu einem {neueKlasse}!");
+            */
+
+        }
     }
 
 
@@ -125,14 +257,14 @@ namespace MON_PROJEKT
         Featherweight, Lightweight, Middleweight, Heavyweight, SuperHeavyweight
     }
 
-    public enum MonType
+    public enum MonAttackType
     {
         Earth, Bio, Toxin, Water, Ice, Fire, Air, Lightning, Shadow
     }
 
-    public enum Klasse
+    public enum MonKlasse
     {
-        Base, Fighter, Spellcaster, Rogue, Mechanic, Healer
+        BASE, FIGHTER, SPELLCASTER, ROGUE, MECHANIC, HEALER
     }
 
     public enum Stat
@@ -140,26 +272,22 @@ namespace MON_PROJEKT
         HP, Stamina, PhyAtk, PhyDef, Psymina, PsyAtk, PsyDef, Speed
     }
 
-    public enum AttackType
-    {
-        Earth, Bio, Toxin, Water, Ice, Fire, Air, Lightning, Shadow
-    }
-
     public enum AttackCategory
     {
         Physical, Psychic, Status
     }
-
-    // KLASSEN ETABLIERT ( WAS MÜSSEN OBJEKTE BEINHALTEN)
-    // JETZT METHODEN (WAS MÜSSEN OBJEKTE KÖNNEN)!
-
-
-
-
-
-
-    // QUELLEN: Unterrichtsmaterial/Übung zu Dictionary, Methoden, Klassen, Vererbung
 }
+
+// KLASSEN ETABLIERT ( WAS MÜSSEN OBJEKTE BEINHALTEN)
+// JETZT METHODEN (WAS MÜSSEN OBJEKTE KÖNNEN)!
+
+
+
+
+
+
+// QUELLEN: Unterrichtsmaterial/Übung zu Dictionary, Methoden, Klassen, Vererbung
+
 
 
 

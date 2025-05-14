@@ -12,9 +12,10 @@ namespace MON_PROJEKT
             monName: "Zaptor",
             genos: Genos.Sauroid,
             weightClass: WeightClass.Middleweight,
-            monTypes: new List<MonType> { MonType.Lightning },
+            monType: MonAttackType.Lightning,
             levelExp: 1,
-            klassen: new List<Klasse> { Klasse.Base },
+            klasseAktuell: MonKlasse.BASE,
+            klassenOptionen: new List<MonKlasse> { MonKlasse.FIGHTER, MonKlasse.ROGUE, MonKlasse.MECHANIC },
             stats: new Dictionary<Stat, int>
             {
             { Stat.HP, 50 },
@@ -53,7 +54,6 @@ namespace MON_PROJEKT
             Console.Beep(2000, 50);
             Console.Beep(2000, 300);
         }
-
     }
 
     public class Elephant : Mon
@@ -62,9 +62,10 @@ namespace MON_PROJEKT
             monName: "Elephant",
             genos: Genos.Therioid,
             weightClass: WeightClass.SuperHeavyweight,
-            monTypes: new List<MonType> { MonType.Earth },
+            monType: MonAttackType.Earth,
             levelExp: 1,
-            klassen: new List<Klasse> { Klasse.Base },
+            klasseAktuell: MonKlasse.BASE,
+            klassenOptionen: new List<MonKlasse> { MonKlasse.FIGHTER, MonKlasse.MECHANIC, MonKlasse.HEALER },
             stats: new Dictionary<Stat, int>
             {
             { Stat.HP, 100 },
@@ -73,7 +74,7 @@ namespace MON_PROJEKT
             { Stat.PhyDef, 70 },
             { Stat.Psymina, 40 },
             { Stat.PsyAtk, 20 },
-            { Stat.PsyDef, 45 },
+            { Stat.PsyDef, 70 },
             { Stat.Speed, 45 }
             },
 
@@ -102,8 +103,6 @@ namespace MON_PROJEKT
             Console.Beep(200, 300);
             Console.Beep(300, 1000);
         }
-
-
     }
 
     public class Salamander : Mon
@@ -112,9 +111,10 @@ namespace MON_PROJEKT
             monName: "Salamander",
             genos: Genos.Amphibioid,
             weightClass: WeightClass.Middleweight,
-            monTypes: new List<MonType> { MonType.Fire },
+            monType: MonAttackType.Fire,
             levelExp: 1,
-            klassen: new List<Klasse> { Klasse.Base },
+            klasseAktuell: MonKlasse.BASE,
+            klassenOptionen: new List<MonKlasse> { MonKlasse.SPELLCASTER, MonKlasse.MECHANIC, MonKlasse.HEALER },
             stats: new Dictionary<Stat, int>
             {
             { Stat.HP, 70 },
@@ -156,8 +156,6 @@ namespace MON_PROJEKT
             Console.Beep(200, 200);
             Console.Beep(300, 200);
         }
-
-
     }
 }
 
