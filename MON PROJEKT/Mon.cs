@@ -96,23 +96,18 @@ namespace MON_PROJEKT
             foreach (var stat in Stats) // var, weil verschiedene datentypen
                 Console.WriteLine($"{stat.Key}: {stat.Value}"); // für jeden KEY den VALUE anzeigen -> KEY: HP, VALUE: 50
             Console.WriteLine("Attacken:");
-            foreach (var atk in AttackSlot1) // var, weil verschiedene datentypen
-                Console.WriteLine($"{atk.AttackName} ({atk.AttackType} / {atk.AttackCategory} / Mina Cost: {atk.AttackCost})  - Power: {atk.Power}");
-            foreach (var atk in AttackSlot2) // var, weil verschiedene datentypen
-                Console.WriteLine($"{atk.AttackName} ({atk.AttackType} / {atk.AttackCategory} / Mina Cost: {atk.AttackCost})  - Power: {atk.Power}");
-            foreach (var atk in AttackSlot3) // var, weil verschiedene datentypen
-                Console.WriteLine($"{atk.AttackName} ({atk.AttackType} / {atk.AttackCategory} / Mina Cost: {atk.AttackCost})  - Power: {atk.Power}");
-            foreach (var atk in AttackSlot4) // var, weil verschiedene datentypen
-                Console.WriteLine($"{atk.AttackName} ({atk.AttackType} / {atk.AttackCategory} / Mina Cost: {atk.AttackCost})  - Power: {atk.Power}");
 
+                Console.WriteLine($"{AttackSlot1.AttackName}  ( {AttackSlot1.AttackType} / {AttackSlot1.AttackCategory} / Mina Cost: {AttackSlot1.AttackCost})  - Power: {AttackSlot1.Power}");
+                Console.WriteLine($"{AttackSlot2.AttackName}  ( {AttackSlot2.AttackType} / {AttackSlot2.AttackCategory} / Mina Cost: {AttackSlot2.AttackCost})  - Power: {AttackSlot2.Power}");
+                Console.WriteLine($"{AttackSlot3.AttackName}  ( {AttackSlot3.AttackType} / {AttackSlot3.AttackCategory} / Mina Cost: {AttackSlot3.AttackCost})  - Power: {AttackSlot3.Power}");
+                Console.WriteLine($"{AttackSlot4.AttackName}  ( {AttackSlot4.AttackType} / {AttackSlot4.AttackCategory} / Mina Cost: {AttackSlot4.AttackCost})  - Power: {AttackSlot4.Power}");
+            //foreach entfernt, weil ist ja keine liste mehr
 
 
         }
 
         public virtual void WechselKlasse()
         {
-
-
 
             if (!(KlasseAktuell == MonKlasse.BASE))
             {

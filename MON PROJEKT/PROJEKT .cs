@@ -40,8 +40,8 @@ A // MONS
 TAG 2
 
 B // CORE / STORY / OVERWORLD
-            // CW: INTRO;
-            // CW: CORE WORLDBUILDING;
+            // CHECK    CW: INTRO;
+            // CHECK    CW: CORE WORLDBUILDING;
             // CW: CORE MECHANICS:
             //      ZIEL: ORTE DURCHSPIELEN ("EROBERN");
             //      MON GANGS, JE 3 MONS - TEAM SYNERGY!;
