@@ -933,7 +933,7 @@ namespace MON_PROJEKT
             {
             { Stat.HP, 40 },
             { Stat.Stamina, 60 },
-            { Stat.PhyAtk, 50 },
+            { Stat.PhyAtk, 40 },
             { Stat.PhyDef, 30 },
             { Stat.Psymina, 80 },
             { Stat.PsyAtk, 90 },
@@ -2554,7 +2554,7 @@ namespace MON_PROJEKT
         public override void SpriteCry()
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine(" -|-|-(*_____*)-|-|- ");
+            Console.WriteLine("................");
             Console.ResetColor();
             Console.Beep(200, 300);
             Console.Beep(200, 300);
@@ -2568,11 +2568,11 @@ namespace MON_PROJEKT
         public Vampula() : base(  // PARAMETER gesetzt, muss mit : base () übergeben werden
             monName: "Vampula",
             genos: Genos.Therioid,
-            weightClass: WeightClass.Middleweight,
+            weightClass: WeightClass.Lightweight,
             monType: MonAttackType.Toxin,
             levelExp: 1,
             klasseAktuell: MonKlasse.BASE,
-            klassenOptionen: new List<MonKlasse> { MonKlasse.SPELLCASTER, MonKlasse.MECHANIC, MonKlasse.HEALER },
+            klassenOptionen: new List<MonKlasse> { MonKlasse.SPELLCASTER, MonKlasse.ROGUE, MonKlasse.HEALER },
             stats: new Dictionary<Stat, int>
             {
             { Stat.HP, 80 },
@@ -2604,7 +2604,7 @@ namespace MON_PROJEKT
         public override void SpriteCry()
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine(" -|-|-(*_____*)-|-|- ");
+            Console.WriteLine("sugi pula");
             Console.ResetColor();
             Console.Beep(200, 300);
             Console.Beep(200, 300);
@@ -2617,12 +2617,12 @@ namespace MON_PROJEKT
     {
         public GoblinShark() : base(  // PARAMETER gesetzt, muss mit : base () übergeben werden
             monName: "GoblinShark",
-            genos: Genos.Therioid,
+            genos: Genos.Ichthyoid,
             weightClass: WeightClass.Middleweight,
             monType: MonAttackType.Toxin,
             levelExp: 1,
             klasseAktuell: MonKlasse.BASE,
-            klassenOptionen: new List<MonKlasse> { MonKlasse.SPELLCASTER, MonKlasse.MECHANIC, MonKlasse.HEALER },
+            klassenOptionen: new List<MonKlasse> { MonKlasse.FIGHTER, MonKlasse.ROGUE, MonKlasse.MECHANIC },
             stats: new Dictionary<Stat, int>
             {
             { Stat.HP, 80 },
@@ -2654,7 +2654,7 @@ namespace MON_PROJEKT
         public override void SpriteCry()
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine(" -|-|-(*_____*)-|-|- ");
+            Console.WriteLine("HHH HHH HHH");
             Console.ResetColor();
             Console.Beep(200, 300);
             Console.Beep(200, 300);
@@ -2668,11 +2668,11 @@ namespace MON_PROJEKT
         public Gremlin() : base(  // PARAMETER gesetzt, muss mit : base () übergeben werden
             monName: "Gremlin",
             genos: Genos.Therioid,
-            weightClass: WeightClass.Middleweight,
-            monType: MonAttackType.Toxin,
+            weightClass: WeightClass.Lightweight,
+            monType: MonAttackType.Shadow,
             levelExp: 1,
             klasseAktuell: MonKlasse.BASE,
-            klassenOptionen: new List<MonKlasse> { MonKlasse.SPELLCASTER, MonKlasse.MECHANIC, MonKlasse.HEALER },
+            klassenOptionen: new List<MonKlasse> { MonKlasse.SPELLCASTER, MonKlasse.ROGUE, MonKlasse.HEALER },
             stats: new Dictionary<Stat, int>
             {
             { Stat.HP, 80 },
@@ -2704,7 +2704,7 @@ namespace MON_PROJEKT
         public override void SpriteCry()
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine(" -|-|-(*_____*)-|-|- ");
+            Console.WriteLine("HIHIHIII");
             Console.ResetColor();
             Console.Beep(200, 300);
             Console.Beep(200, 300);
@@ -2718,11 +2718,11 @@ namespace MON_PROJEKT
         public Imp() : base(  // PARAMETER gesetzt, muss mit : base () übergeben werden
             monName: "Imp",
             genos: Genos.Therioid,
-            weightClass: WeightClass.Middleweight,
-            monType: MonAttackType.Toxin,
+            weightClass: WeightClass.Lightweight,
+            monType: MonAttackType.Shadow,
             levelExp: 1,
             klasseAktuell: MonKlasse.BASE,
-            klassenOptionen: new List<MonKlasse> { MonKlasse.SPELLCASTER, MonKlasse.MECHANIC, MonKlasse.HEALER },
+            klassenOptionen: new List<MonKlasse> { MonKlasse.FIGHTER, MonKlasse.ROGUE, MonKlasse.MECHANIC },
             stats: new Dictionary<Stat, int>
             {
             { Stat.HP, 80 },
@@ -2754,7 +2754,7 @@ namespace MON_PROJEKT
         public override void SpriteCry()
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine(" -|-|-(*_____*)-|-|- ");
+            Console.WriteLine("HIHIHIII");
             Console.ResetColor();
             Console.Beep(200, 300);
             Console.Beep(200, 300);

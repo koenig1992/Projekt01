@@ -9,9 +9,14 @@ class program
 
         StoryEvent.ChooseMon();
 
-        DesertOasis desertOasis = new DesertOasis(); // instanziieren und dann
-        desertOasis.EnterArea();                    
+        while (true)
+        {
 
+            StoryEvent.ChooseArea();
+
+
+
+        }
 
         // StoryEvent.ChooseArea();
 

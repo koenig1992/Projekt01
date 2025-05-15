@@ -41,8 +41,11 @@ namespace MON_PROJEKT
         public static void ChooseMon()
         {
             Console.WriteLine("Choose Your Starter Mon\n");
-            Console.WriteLine("Your Options:");
-            Console.WriteLine("");
+            Console.WriteLine("Your Options:\n");
+            List<Mon> StarterMon = new List<Mon>
+            {
+// WarHog, Pixie, Cthulhuist, Toxolotl, SnowlBear, Cerberus, Valkyrie, Zaptor
+            };
 
             string starter = Console.ReadLine();
 
@@ -58,21 +61,42 @@ namespace MON_PROJEKT
 
         public static void ChooseArea(List<Area> areaList)
         {
-            Console.WriteLine("Which Area Do You Want to Conquer?\n");
+            Console.WriteLine("Which Area Do You Want to Conquer?\nEnter Valid Initial\n");
 
             foreach (var area in areaList)
             {
                 string areaStatus = area.BossBesiegt ? "(!CONQUERED!)" : ""; // für BossBesiegt true, gib aus (!CONQUERED!), ansonsten gib aus ""
                 Console.WriteLine($"{area.AreaName} {areaStatus}");
             }
+
+            string eingabe = Console.ReadLine()?.Trim().ToUpper() ?? "";
+
+            switch (eingabe)
+            {
+                case ("D"):
+                    Area desertOasis = new DesertOasis(); // <== MUSS ZUERST OBJEKT ERSTELLEN
+                    desertOasis.EnterArea();                // UND DANN MIT DEM OBJEKT WEITERARBEITEN
+                    break;                      
+
+                case ("J"):
+                    Area jungleTribes = new JungleTribes();
+                        jungleTribes.EnterArea();
+                    break;
+
+                default:
+                    Console.WriteLine("Enter Valid Initial");
+                    return;
+
+            }
         }
 
 
 
-        public void EnterArea()
+        public virtual void EnterArea()
         {
-            Console.WriteLine($"Now entering {AreaName}...");
-           EnterMusic(),
+            Console.WriteLine($"Now entering {AreaName}..."); // OOOOOOOOOOOOOOOOOOOFFFFF, ZUGRIFF SCHWIERIG
+            EnterMusic();
+
 
 
         }

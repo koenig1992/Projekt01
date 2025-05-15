@@ -40,10 +40,10 @@ namespace MON_PROJEKT
         public Genos Genos { get; } // nicht veränderbar, rechnerisch irrelevant, nur "schön"
         public WeightClass WeightClass { get; } // nicht veränderbar, rechnerisch irrelevant, nur "schön"
         public MonAttackType MonType { get; } // nicht veränderbar, rechnerisch RELEVANT
-        public int LevelExp { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
+        public virtual int LevelExp { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
         public virtual MonKlasse KlasseAktuell { get; set; } // VERÄNDERBAR, rechnerisch RELEVANT
         public List<MonKlasse> KlassenOptionen { get; }
-        public Dictionary<Stat, int> Stats { get; set; } = new Dictionary<Stat, int>// VERÄNDERBAR, rechnerisch RELEVANT
+        public virtual Dictionary<Stat, int> Stats { get; set; } = new Dictionary<Stat, int>// VERÄNDERBAR, rechnerisch RELEVANT
         {
                 { Stat.HP, 50 }, // default ausgefüllt, um Format für mich zu wissen
                 { Stat.Stamina, 50 },
@@ -54,10 +54,10 @@ namespace MON_PROJEKT
                 { Stat.PsyDef, 50 },
                 { Stat.Speed, 50 }
         };
-        public Attacke AttackSlot1 { get; set; } // EEEEEEWIG AN LISTE RUMGEDOKTORT -> 4 EINZELNE SLOTS VIEL EINFACHER ZU HANDELN!
-        public Attacke AttackSlot2 { get; set; }
-        public Attacke AttackSlot3 { get; set; }
-        public Attacke AttackSlot4 { get; set; }
+        public virtual Attacke AttackSlot1 { get; set; } // EEEEEEWIG AN LISTE RUMGEDOKTORT -> 4 EINZELNE SLOTS VIEL EINFACHER ZU HANDELN!
+        public virtual Attacke AttackSlot2 { get; set; }
+        public  virtual Attacke AttackSlot3 { get; set; }
+        public virtual Attacke AttackSlot4 { get; set; }
 
 
 

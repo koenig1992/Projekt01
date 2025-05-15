@@ -40,6 +40,10 @@ namespace MON_PROJEKT
 
         }
 
+        public virtual void EnterMusic() // <== VIRTUAL METHODE, DAMIT ICH SPÄTER OVERRIDE VERWENDEN KANN
+        {
+        }
+
     }
 
     public class DesertOasis : Area
@@ -84,7 +88,7 @@ namespace MON_PROJEKT
             )
         { } //   <== AN KONSTRUKTORKÖRPER GEDACHT, NICHT NOCH MAL 2 STUNDEN HÄNGEN
 
-        public void EnterMusic()
+        public override void EnterMusic() // OVERRIDE!!!
         {
             Console.WriteLine($"{Music.MusicDesert}");
         }
@@ -106,7 +110,7 @@ namespace MON_PROJEKT
             )
         { }
 
-        public void EnterMusic()
+        public override void EnterMusic()
         {
             Music.MusicSwamp();
         }
