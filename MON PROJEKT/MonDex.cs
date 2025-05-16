@@ -100,8 +100,10 @@ namespace MON_PROJEKT
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("OINK OINK");
             Console.ResetColor();
-            Console.Beep(200, 300);
-            Console.Beep(300, 1000);
+            Console.Beep(500, 300);
+            Thread.Sleep(200);
+            Console.Beep(500, 300);
+
         }
     }
 
@@ -447,10 +449,14 @@ namespace MON_PROJEKT
         public override void SpriteCry()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("CHIII CHIII");
+            Console.WriteLine("*GLITTER GLITTER*");
             Console.ResetColor();
-            Console.Beep(200, 300);
-            Console.Beep(300, 1000);
+            Console.Beep(3000, 100);
+            Console.Beep(3000, 100);
+            Thread.Sleep(300);
+            Console.Beep(3000, 100);
+            Console.Beep(3000, 100);
+
         }
     }
 

@@ -36,7 +36,8 @@ namespace MON_PROJEKT
             Console.WriteLine(" _____.,,-,^,^#%&$@%#&#^,^,-,,._____\n\n\n");
             Console.ReadLine();
 
-            Console.WriteLine("VORGESCHICHTEEEE KEINE MENSCHEEEEEN MUTATIOOOON\n");
+            Console.WriteLine("VORGESCHICHTEEEE\nAPOKALYPSE\nATOMARE VERSEUCHUNG UND MUTATION\nKEINE MENSCHEN MEHR, NUR MONS\n");
+            Console.ReadLine();
             Console.Clear();
         }
 
@@ -57,15 +58,15 @@ namespace MON_PROJEKT
             };
 
 
-            Console.WriteLine("The sturdy generalist Earth Mon WarHog\nThe pyromaniac but slow Fire Mon Pyromander\nThe strong but dumb Water Mon AssassiGator\nThe magical but frail Bio Mon Pixie\n");
-
-
-
-            Console.WriteLine("\nEnter the name of your Mon");
             bool starterGewählt = false;
 
             while (!starterGewählt)
             {
+                Console.WriteLine("The sturdy generalist Earth Mon WarHog\nThe pyromaniac but slow Fire Mon Pyromander\nThe strong but dumb Water Mon AssassiGator\nThe magical but frail Bio Mon Pixie\n");
+                Console.WriteLine("\nEnter the name of your Mon");
+
+
+
                 string starterInput = Console.ReadLine()?.Trim().ToUpper();
 
 
@@ -96,22 +97,31 @@ namespace MON_PROJEKT
                         Console.WriteLine("Please Choose One of Those 4 to Join Your Gang");
                         break;
                 }
+
             }
+
+            Console.Clear();
 
             Console.WriteLine($"{PlayerParty.PlayerPartyArray[0].MonName} Joined Your Gang!");
             PlayerParty.PlayerPartyArray[0].MonInfo();
 
             Console.ReadLine();
-
+            Console.Clear();
 
 
         }
 
-
+        public static void Tutorial()
+        {
+            Console.WriteLine("hier sollte ein tutorial kommen. wird leider nix mehr. muss um 16:30 git pushen. anykey und weiter gehts");
+            Console.ReadLine();
+            Console.Clear();
+        }
 
         public static void ChooseArea(List<Area> areaList)
         {
             Console.WriteLine("Which Area Do You Want to Conquer?\nEnter Valid Initial\n");
+            Console.WriteLine("ACHTUNG MICHAEL, NUR BEI DER EINGABE D KOMMST DU IN EINE HALBWEGS FERTIGE VERSION, DIE ANDEREN SIND NUR LEERE GERÜSTE");
 
             foreach (var area in areaList)
             {
@@ -143,8 +153,10 @@ namespace MON_PROJEKT
                 default:
                     Console.WriteLine("Enter Valid Initial");
                     return;
-
+                    
             }
+
+            
         }
 
 
@@ -190,14 +202,6 @@ namespace MON_PROJEKT
             Console.WriteLine("Now Don't Be an Asshole - or Another Gang Will Come to Topple You Soon!\n");
 
         }
-
-        public static void LostGame()
-        {
-
-
-        }
-
-
 
     }
 }

@@ -9,14 +9,17 @@ class program
 
         StoryEvent.ChooseMon();
 
+        StoryEvent.Tutorial();
 
 
-        while (true)
+
+        while (true) // hauptgame
         {
 
             StoryEvent.ChooseArea(AreaList.areaList);
 
-      
+            
+       
 
         }
 

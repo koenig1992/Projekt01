@@ -43,14 +43,14 @@ B // CORE / STORY / OVERWORLD
             // CHECK    CW: INTRO;
             // CHECK    CW: CORE WORLDBUILDING;
             // CW: CORE MECHANICS:
-            //      ZIEL: ORTE DURCHSPIELEN ("EROBERN");
-            //      MON GANGS, JE 3 MONS - TEAM SYNERGY!;
-            //      KAMPFSYSTEM TUTORIAL;
-            //      STARTER MON AUSWÄHLEN (1 von 3? 1 von 8 (genos)? 1 von 9 (typings)?);
-            // WELT / ORTE (LISTE, AUSWAHL): DESERT (EARTH), FOREST (BIO), MARSH (TOXIN), RIVER (WATER), POLAR (ICE), VOLCANO (FIRE), SKY (AIR), POWER PLANT (LIGHTNING), NIGHTLANDS (SHADOW);
+            // CHECK:     ZIEL: ORTE DURCHSPIELEN ("EROBERN");
+            // CHECK:     MON GANGS, JE 3 MONS - TEAM SYNERGY!;
+            // KEINE ZEIT:     KAMPFSYSTEM TUTORIAL;
+            // CHECK:     STARTER MON AUSWÄHLEN (1 von 3? 1 von 8 (genos)? 1 von 9 (typings)?);
+            // CHECK: WELT / ORTE (LISTE, AUSWAHL): DESERT (EARTH), FOREST (BIO), MARSH (TOXIN), RIVER (WATER), POLAR (ICE), VOLCANO (FIRE), SKY (AIR), POWER PLANT (LIGHTNING), NIGHTLANDS (SHADOW);
             // orte haben SIMPLE GRAFIK: (string "" ZEICHENSYMBOLE + FARBE);
             // orte haben "NPC" (LISTE, ITEMS) MIT VERSCHIEDENEN FUNKTIONEN (LISTE, RANDOM PLATZIEREN NACH RUNDE): HEALERS, SALESMEN, THIEFS;
-            // orte haben bestimmte MONS (LISTE, RANDOM AUSWAHL PRO RUNDE);
+            // CHECK: orte haben bestimmte MONS (LISTE, RANDOM AUSWAHL PRO RUNDE);
 
 TAG 3
 C // ATTACKEN
@@ -58,9 +58,9 @@ C // ATTACKEN
             //CHECK     ELEMENTAL TYPING: NEUTRAL, EARTH, BIO, TOXIN, WATER, ICE, FIRE, AIR, LIGHTNING, SHADOW;
             //CHECK     CATEGORY: PHYSICAL, PSYCHIC, STATUS;
             //CHECK     POWER: BASE DAMAGE;
-            // !!! - KOMMT IM KAMPFSYSTEM: TYPE EFFECTIVEVENSS (+25% damage super effecitve / -25% damage not very effective) 
+            // SO HALB !!! - KOMMT IM KAMPFSYSTEM: TYPE EFFECTIVEVENSS (+25% damage super effecitve / -25% damage not very effective) 
             // !!! - KOMMT IM KAMPFSYSTEM: if ATTACK TYPE = MON TYPE: SAME TYPE ATTACK BONUS +10%
-            // !!! - KOMMT IM KAMPFSYSTEM: COST: STAMINA/PSYMINA;
+            // SO HALB !!! - KOMMT IM KAMPFSYSTEM: COST: STAMINA/PSYMINA;
             // !!! - EVTL ZU KOMPLIZIERT, AUSGESETZT: EFFECT: ADDITIONAL EFFECTS;
             +// CHECK   ATTACH ATTACK LEARNSET TO MONS;
 [ADDED AFTER GREEN LIGHT]       // mons können nach level up und ausbildung NEUE ATTACKEN LERNEN!!!
