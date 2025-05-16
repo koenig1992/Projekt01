@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -26,7 +27,6 @@ namespace MON_PROJEKT
 
         public string HomeBonusType { get; }
 
-
         protected Area(string areaName, bool bossBesiegt, string areaDescription, List<Mon> easyAreaMon, List<Mon> midAreaMon, List<Mon> hardAreaMon, List<Mon> bossAreaMon, string homeBonusType)
         {
             AreaName = areaName;
@@ -35,14 +35,49 @@ namespace MON_PROJEKT
             EasyAreaMon = new List<Mon>();
             MidAreaMon = new List<Mon>();
             HardAreaMon = new List<Mon>();
-            BossAreaMon = new List<Mon>();
-            HomeBonusType = homeBonusType;
-
+            BossAreaMon = new List<Mon>();          
+            
         }
 
-        public virtual void EnterMusic() // <== VIRTUAL METHODE, DAMIT ICH SPÄTER OVERRIDE VERWENDEN KANN
+        public virtual void EnterArea() // <== METHODE, WEIL WAS MUSS AREA KÖNNEN. VIRTUAL METHODE, DAMIT ICH SPÄTER OVERRIDE VERWENDEN KANN
         {
+           // Console.WriteLine($"Now entering {AreaName}...");
+           // Console.WriteLine($"{Music.MusicDesert}");
         }
+
+        public virtual void EnterMusic() // <== METHODE, WEIL WAS MUSS AREA KÖNNEN. VIRTUAL METHODE, DAMIT ICH SPÄTER OVERRIDE VERWENDEN KANN
+        {
+
+        }
+
+        public virtual void EasyArea()
+        {
+            Console.WriteLine($"EasyArea: {AreaName} 3 Kämpfe und 3 Siege gegen RANDOM GANGs hier, dann Weiter zu MidArea");
+            Console.ReadLine();
+        }
+
+        public virtual void MidArea()
+        {
+            Console.WriteLine($"MidArea {AreaName}: 3 Kämpfe und 3 Siege gegen RANDOM GANGs hier, dann Weiter zu HardArea");
+            Console.ReadLine();
+
+        }
+
+        public virtual void HardArea()
+        {
+            Console.WriteLine($"HardArea: {AreaName} 3 Kämpfe und 3 Siege gegen RANDOM GANGs hier, dann Weiter zu BossArea");
+            Console.ReadLine();
+
+        }
+
+        public virtual void BossArea()
+        {
+            Console.WriteLine($"BossArea: {AreaName} 1 Sieg, dann bool bossBesiegt auf true");
+            Console.ReadLine();
+
+        }
+
+
 
     }
 
@@ -51,7 +86,7 @@ namespace MON_PROJEKT
         public DesertOasis() : base(
             areaName: "D - Desert Oasis",
             bossBesiegt: false,
-            areaDescription: $"An Oasis in the Desert.\nThe Gangs here specialize in Earth, FIRE and TOXIN.\nThe Desert Oasis is ruled by the fearsome ELEPHANT Gang\n",
+            areaDescription: $"\nAn Oasis in the Desert.\nThe Gangs here specialize in EARTH, FIRE and TOXIN.\nThe Desert Oasis is ruled by the fearsome ELEPHANT Gang\n",
             easyAreaMon: new List<Mon>
             {
                 new Moledigger(), new LampDjinn(), new Elephant(),
@@ -88,9 +123,45 @@ namespace MON_PROJEKT
             )
         { } //   <== AN KONSTRUKTORKÖRPER GEDACHT, NICHT NOCH MAL 2 STUNDEN HÄNGEN
 
+        public override void EnterArea() // OVERRIDE!!!
+        {
+
+            Console.WriteLine(AreaDescription);
+            Console.WriteLine("Do You Want to Enter? Y/N");
+            string eingabe = Console.ReadLine()?.Trim().ToUpper() ?? "";
+
+            switch (eingabe)
+            {
+                case ("Y"):
+
+                    Console.WriteLine($"Now Entering {AreaName}...\n");
+                    EnterMusic();
+                    EasyArea();
+
+                    MidArea();
+
+                    HardArea();
+
+                    BossArea();
+
+                    break;
+
+                case ("N"):
+                    return;
+
+                    
+                default:
+                    
+                    return;
+
+            }
+
+
+        }
+
         public override void EnterMusic() // OVERRIDE!!!
         {
-            Console.WriteLine($"{Music.MusicDesert}");
+            Music.MusicDesert();
         }
 
 
@@ -101,7 +172,7 @@ namespace MON_PROJEKT
         public Swamplands() : base(
             areaName: "S - Swamplands",
             bossBesiegt: false,
-            areaDescription: $"Murky and wet.\nThe Gangs here specialize in TOXIN, WATER and BIO.\nThe Swamplands are ruled by the treacherous ARACHNA Gang\n",
+            areaDescription: $"\nMurky and wet.\nThe Gangs here specialize in TOXIN, WATER and BIO.\nThe Swamplands are ruled by the treacherous ARACHNA Gang\n",
             easyAreaMon: new List<Mon>(),
             midAreaMon: new List<Mon>(),
             hardAreaMon: new List<Mon>(),
@@ -110,11 +181,46 @@ namespace MON_PROJEKT
             )
         { }
 
-        public override void EnterMusic()
+        public override void EnterArea() // OVERRIDE!!!
+        {
+
+            Console.WriteLine(AreaDescription);
+            Console.WriteLine("Do You Want to Enter? Y/N");
+            string eingabe = Console.ReadLine()?.Trim().ToUpper() ?? "";
+
+            switch (eingabe)
+            {
+                case ("Y"):
+
+                    Console.WriteLine($"Now Entering {AreaName}...\n");
+                    EnterMusic();
+                    EasyArea();
+
+                    MidArea();
+
+                    HardArea();
+
+                    BossArea();
+
+                    break;
+
+                case ("N"):
+                    return;
+
+
+                default:
+
+                    return;
+
+            }
+
+
+        }
+
+        public override void EnterMusic() // OVERRIDE!!!
         {
             Music.MusicSwamp();
         }
-
 
 
     }
@@ -124,7 +230,7 @@ namespace MON_PROJEKT
         public JungleTribes() : base(
             areaName: "J - Jungle Tribes",
             bossBesiegt: false,
-            areaDescription: $"When you hear the Bongos, You're in the Jungle Tribeslands.\nThe Gangs here specialize in BIO, TOXIN and AIR.\nThe Jungle Tribes are ruled by the tricky ENT Gang\n",
+            areaDescription: $"\nWhen you hear the Bongos, You're in the Jungle Tribeslands.\nThe Gangs here specialize in BIO, TOXIN and AIR.\nThe Jungle Tribes are ruled by the tricky ENT Gang\n",
             easyAreaMon: new List<Mon>(),
             midAreaMon: new List<Mon>(),
             hardAreaMon: new List<Mon>(),
@@ -138,9 +244,9 @@ namespace MON_PROJEKT
     public class UnderwaterBase : Area
     {
         public UnderwaterBase() : base(
-            areaName: "Underwater Base",
+            areaName: "U - Underwater Base",
             bossBesiegt: false,
-            areaDescription: $"An Underwater Bunker from the Old Days.\nThe Gangs here specialize in WATER, ICE and TOXIN.\nThe Underwater Base is ruled by the blood-thirsty JAWS Gang\n",
+            areaDescription: $"\nAn Underwater Bunker from the Old Days.\nThe Gangs here specialize in WATER, ICE and TOXIN.\nThe Underwater Base is ruled by the blood-thirsty JAWS Gang\n",
             easyAreaMon: new List<Mon>(),
             midAreaMon: new List<Mon>(),
             hardAreaMon: new List<Mon>(),
@@ -156,7 +262,7 @@ namespace MON_PROJEKT
         public FrozenTundra() : base(
             areaName: "F - Frozen Tundra",
             bossBesiegt: false,
-            areaDescription: $"A harsh Frozen Wasteland.\nThe Gangs here specialize in ICE, WATER and FIRE.\nThe Frozen Tundra is ruled by the merciless ICEREX Gang\n",
+            areaDescription: $"\nA harsh Frozen Wasteland.\nThe Gangs here specialize in ICE, WATER and FIRE.\nThe Frozen Tundra is ruled by the merciless ICEREX Gang\n",
             easyAreaMon: new List<Mon>(),
             midAreaMon: new List<Mon>(),
             hardAreaMon: new List<Mon>(),
@@ -172,7 +278,7 @@ namespace MON_PROJEKT
         public Volcano() : base(
             areaName: "V - Volcano",
             bossBesiegt: false,
-            areaDescription: $"Caldera of active Volcano.\nThe Gangs here specialize in FIRE, EARTH and TOXIN.\nThe Volcano is ruled by the hot-headed FIREREX Gang\n",
+            areaDescription: $"\nCaldera of active Volcano.\nThe Gangs here specialize in FIRE, EARTH and TOXIN.\nThe Volcano is ruled by the hot-headed FIREREX Gang\n",
             easyAreaMon: new List<Mon>(),
             midAreaMon: new List<Mon>(),
             hardAreaMon: new List<Mon>(),
@@ -188,7 +294,7 @@ namespace MON_PROJEKT
         public Airship() : base(
             areaName: "A - Airship",
             bossBesiegt: false,
-            areaDescription: $"An enormous Airship.\nThe Gangs here specialize in AIR, LIGHTNING and ICE.\nThe Airship is ruled by the royal GRIFFIN Gang\n",
+            areaDescription: $"\nAn enormous Airship.\nThe Gangs here specialize in AIR, LIGHTNING and ICE.\nThe Airship is ruled by the royal GRIFFIN Gang\n",
             easyAreaMon: new List<Mon>(),
             midAreaMon: new List<Mon>(),
             hardAreaMon: new List<Mon>(),
@@ -204,7 +310,7 @@ namespace MON_PROJEKT
         public PowerPlant() : base(
             areaName: "P - Power Plant",
             bossBesiegt: false,
-            areaDescription: $"A Power Plant from the Old Days.\nThe Gangs here specialize in LIGHTNING, FIRE and EARTH.\nThe Power Plant is ruled by the crazy GOAT OF THUNDER Gang\n",
+            areaDescription: $"\nA Power Plant from the Old Days.\nThe Gangs here specialize in LIGHTNING, FIRE and EARTH.\nThe Power Plant is ruled by the crazy GOAT OF THUNDER Gang\n",
             easyAreaMon: new List<Mon>(),
             midAreaMon: new List<Mon>(),
             hardAreaMon: new List<Mon>(),
@@ -219,7 +325,7 @@ namespace MON_PROJEKT
         public NightmareDimension() : base(
             areaName: "N - Nightmare Dimension",
             bossBesiegt: false,
-            areaDescription: $"WTF IS THIS? A NIGHTMARE?\nThe Gangs here specialize in SHADOW, FIRE and TOXIN.\nThe Nightmare Dimension is ruled by the terrifying SHADOWREX Gang\n",
+            areaDescription: $"\nWTF IS THIS? A NIGHTMARE?\nThe Gangs here specialize in SHADOW, FIRE and TOXIN.\nThe Nightmare Dimension is ruled by the terrifying SHADOWREX Gang\n",
             easyAreaMon: new List<Mon>(),
             midAreaMon: new List<Mon>(),
             hardAreaMon: new List<Mon>(),
@@ -246,25 +352,10 @@ namespace MON_PROJEKT
     };
     }
 
-    /* public static class AreaList
-    {
 
 
-        List<Area> areaList = new List<Area>
 
-        {
-            new Area("D - Desert Oasis"),
-            new Area("S - Swamplands"),
-            new Area("J - Jungle Tribes"),
-            new Area("U - Underwater Base"),
-            new Area("F - Frozen Tundra"),
-            new Area("V - Volcano"),
-            new Area("A - Airship"),
-            new Area("P - Power Plant"),
-            new Area("N - Nightmare Dimension"),
 
-        }; 
-    }*/
 
 }
 

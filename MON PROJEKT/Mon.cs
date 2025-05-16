@@ -97,10 +97,10 @@ namespace MON_PROJEKT
                 Console.WriteLine($"{stat.Key}: {stat.Value}"); // für jeden KEY den VALUE anzeigen -> KEY: HP, VALUE: 50
             Console.WriteLine("Attacken:");
 
-                Console.WriteLine($"{AttackSlot1.AttackName}  ( {AttackSlot1.AttackType} / {AttackSlot1.AttackCategory} / Mina Cost: {AttackSlot1.AttackCost})  - Power: {AttackSlot1.Power}");
-                Console.WriteLine($"{AttackSlot2.AttackName}  ( {AttackSlot2.AttackType} / {AttackSlot2.AttackCategory} / Mina Cost: {AttackSlot2.AttackCost})  - Power: {AttackSlot2.Power}");
-                Console.WriteLine($"{AttackSlot3.AttackName}  ( {AttackSlot3.AttackType} / {AttackSlot3.AttackCategory} / Mina Cost: {AttackSlot3.AttackCost})  - Power: {AttackSlot3.Power}");
-                Console.WriteLine($"{AttackSlot4.AttackName}  ( {AttackSlot4.AttackType} / {AttackSlot4.AttackCategory} / Mina Cost: {AttackSlot4.AttackCost})  - Power: {AttackSlot4.Power}");
+                Console.WriteLine($"{AttackSlot1.AttackName}  ( {AttackSlot1.AttackType} / {AttackSlot1.AttackCategory} / Stamina: {AttackSlot1.AttackCostStamina} / Psymina: {AttackSlot1.AttackCostPsymina})  - Power: {AttackSlot1.Power}");
+                Console.WriteLine($"{AttackSlot2.AttackName}  ( {AttackSlot2.AttackType} / {AttackSlot2.AttackCategory} / Stamina: {AttackSlot2.AttackCostStamina} / Psymina: {AttackSlot2.AttackCostPsymina})  - Power: {AttackSlot2.Power}");
+                Console.WriteLine($"{AttackSlot3.AttackName}  ( {AttackSlot3.AttackType} / {AttackSlot3.AttackCategory} / Stamina: {AttackSlot3.AttackCostStamina} / Psymina: {AttackSlot3.AttackCostPsymina})  - Power: {AttackSlot3.Power}");
+                Console.WriteLine($"{AttackSlot4.AttackName}  ( {AttackSlot4.AttackType} / {AttackSlot4.AttackCategory} / Stamina: {AttackSlot4.AttackCostStamina} / Psymina: {AttackSlot4.AttackCostPsymina})  - Power: {AttackSlot4.Power}");
             //foreach entfernt, weil ist ja keine liste mehr
 
 

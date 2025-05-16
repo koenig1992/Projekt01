@@ -17,19 +17,23 @@ namespace MON_PROJEKT
 
         public AttackCategory AttackCategory { get; set; } // enumeration AttackCategory
 
-        public int AttackCost { get; set; } // int AttackCost: -x stamina/ -y psymina
+        public int AttackCostStamina { get; set; } // int AttackCost: -x stamina/ -y psymina
+
+        public int AttackCostPsymina { get; set; } // int AttackCost: -x stamina/ -y psymina
+
 
         public int Power { get; set; } // int Power
 
         public string AttackDescription { get; set; } // Description, evtl später für Effekte, zB poisoning
 
-        public Attacke(int attackDexNo, string attackName, MonAttackType attackType, AttackCategory attackCategory, int attackCost, int power, string attackDescription)
+        public Attacke(int attackDexNo, string attackName, MonAttackType attackType, AttackCategory attackCategory, int attackCostSta, int attackCostPsy, int power, string attackDescription)
         {
             AttackDexNo = attackDexNo;
             AttackName = attackName;
             AttackType = attackType;
             AttackCategory = attackCategory;
-            AttackCost = attackCost;
+            AttackCostStamina = attackCostSta;
+            AttackCostPsymina = attackCostPsy;
             Power = power;
             AttackDescription = attackDescription;
         }
@@ -43,7 +47,8 @@ namespace MON_PROJEKT
             attackName: "Fire Fist",
             attackType: MonAttackType.Fire,
             attackCategory: AttackCategory.Physical,
-            attackCost: 20,
+            attackCostSta: 25,
+            attackCostPsy: 10,
             power: 70,
             attackDescription: "jaja voll geile attacke, brudi"
             );
@@ -53,7 +58,8 @@ namespace MON_PROJEKT
             attackName: "Kugelblitz",
             attackType: MonAttackType.Lightning,
             attackCategory: AttackCategory.Physical,
-            attackCost: 40,
+            attackCostSta: 10,
+            attackCostPsy: 40,
             power: 100,
             attackDescription: "BLITZZZZZZZZSCHLAG"
         );
@@ -63,7 +69,8 @@ namespace MON_PROJEKT
             attackName: "Earthquake",
             attackType: MonAttackType.Earth,
             attackCategory: AttackCategory.Physical,
-            attackCost: 50,
+            attackCostSta: 50,
+            attackCostPsy: 0,
             power: 120,
             attackDescription: "EARTHQUAAAAAKE"
         );
@@ -73,7 +80,8 @@ namespace MON_PROJEKT
             attackName: "MagmaBall",
             attackType: MonAttackType.Fire,
             attackCategory: AttackCategory.Psychic,
-            attackCost: 50,
+            attackCostSta: 0,
+            attackCostPsy: 50,
             power: 110,
             attackDescription: "a Magma Ball erupts"
         );

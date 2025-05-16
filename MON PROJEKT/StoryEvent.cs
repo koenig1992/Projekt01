@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -36,22 +37,71 @@ namespace MON_PROJEKT
             Console.ReadLine();
 
             Console.WriteLine("VORGESCHICHTEEEE KEINE MENSCHEEEEEN MUTATIOOOON\n");
+            Console.Clear();
         }
 
         public static void ChooseMon()
         {
             Console.WriteLine("Choose Your Starter Mon\n");
             Console.WriteLine("Your Options:\n");
+            Console.ReadLine();
             List<Mon> StarterMon = new List<Mon>
             {
-// WarHog, Pixie, Cthulhuist, Toxolotl, SnowlBear, Cerberus, Valkyrie, Zaptor
+                // WarHog, Pixie, Cthulhuist, Toxolotl, SnowlBear, Cerberus, Valkyrie, Zaptor
+
+                        new WarHog(),
+                        new Pyromander(),
+                        new AssassiGator (),
+                        new Pixie(),
+
             };
 
-            string starter = Console.ReadLine();
 
-            // starter -> Mon
-            // gültige eingabe?
-            // add Mon to PlayerParty
+            Console.WriteLine("The sturdy generalist Earth Mon WarHog\nThe pyromaniac but slow Fire Mon Pyromander\nThe strong but dumb Water Mon AssassiGator\nThe magical but frail Bio Mon Pixie\n");
+
+
+
+            Console.WriteLine("\nEnter the name of your Mon");
+            bool starterGewählt = false;
+
+            while (!starterGewählt)
+            {
+                string starterInput = Console.ReadLine()?.Trim().ToUpper();
+
+
+                switch (starterInput)
+                {
+                    case "WARHOG":
+                        PlayerParty.PlayerPartyArray[0] = new WarHog();
+                        starterGewählt = true;
+
+                        break;
+                    case "PYROMANDER":
+                        PlayerParty.PlayerPartyArray[0] = new Pyromander();
+                        starterGewählt = true;
+
+                        break;
+                    case "ASSASSIGATOR":
+                        PlayerParty.PlayerPartyArray[0] = new AssassiGator();
+                        starterGewählt = true;
+
+                        break;
+                    case "PIXIE":
+                        PlayerParty.PlayerPartyArray[0] = new Pixie();
+                        starterGewählt = true;
+
+                        break;
+
+                    default:
+                        Console.WriteLine("Please Choose One of Those 4 to Join Your Gang");
+                        break;
+                }
+            }
+
+            Console.WriteLine($"{PlayerParty.PlayerPartyArray[0].MonName} Joined Your Gang!");
+            PlayerParty.PlayerPartyArray[0].MonInfo();
+
+            Console.ReadLine();
 
 
 
@@ -76,11 +126,18 @@ namespace MON_PROJEKT
                 case ("D"):
                     Area desertOasis = new DesertOasis(); // <== MUSS ZUERST OBJEKT ERSTELLEN
                     desertOasis.EnterArea();                // UND DANN MIT DEM OBJEKT WEITERARBEITEN
-                    break;                      
+
+                    break;
 
                 case ("J"):
                     Area jungleTribes = new JungleTribes();
-                        jungleTribes.EnterArea();
+                    jungleTribes.EnterArea();
+                    break;
+
+                case ("S"):
+                    Area swamplands = new Swamplands();
+                    swamplands.EnterArea();
+
                     break;
 
                 default:
@@ -92,14 +149,6 @@ namespace MON_PROJEKT
 
 
 
-        public virtual void EnterArea()
-        {
-            Console.WriteLine($"Now entering {AreaName}..."); // OOOOOOOOOOOOOOOOOOOFFFFF, ZUGRIFF SCHWIERIG
-            EnterMusic();
-
-
-
-        }
 
 
         public static void WonFight()
@@ -109,7 +158,7 @@ namespace MON_PROJEKT
 
         public static void WonAreaLevel()
         {
-        
+
         }
 
 

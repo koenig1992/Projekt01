@@ -9,16 +9,18 @@ class program
 
         StoryEvent.ChooseMon();
 
+
+
         while (true)
         {
 
-            StoryEvent.ChooseArea();
+            StoryEvent.ChooseArea(AreaList.areaList);
 
-
+      
 
         }
 
-        // StoryEvent.ChooseArea();
+       
 
 
 
